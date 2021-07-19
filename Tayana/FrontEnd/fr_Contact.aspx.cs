@@ -10,14 +10,15 @@ using System.Web.Script.Serialization;
 using System.Web.Services;
 using System.Data.SqlClient;
 using System.Data;
+using System.Configuration;
 
 namespace Tayana
 {
     public partial class WebForm16 : System.Web.UI.Page
     {
         private DataBase db = new DataBase();
-        protected static string ReCaptcha_Key = "6Lcs1lEaAAAAAC3OaUgqM9F2vfexVWMYGOeNOrDR";
-        protected static string ReCaptcha_Secret = "6Lcs1lEaAAAAAA7tqjB9lZb7bL4giAZRFc7_wL8v";
+        protected static string ReCaptcha_Key = ConfigurationManager.AppSettings["ReCaptcha_Key"].ToString();
+        protected static string ReCaptcha_Secret = ConfigurationManager.AppSettings["ReCaptcha_Secret"].ToString();
 
         [WebMethod]
         public static string VerifyCaptcha(string response)
